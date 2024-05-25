@@ -1,22 +1,8 @@
-## FHIR Tools Skunkworks
+## Interop Tools
 
-Tools can be viewed on [FHIR Tools Skunkworks](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/)
+Tools can be viewed on [Interop Tools](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/)
 
-### Validate (FHIR Validate)
-
-Uses [FHIR Validation](https://hl7.org/fhir/R4/validation.html) to check conformance of FHIR resources. The configuration of the validator can be found in [Configuration](https://nhsdigital.github.io/interoperability-standards-tools-skunkworks/information)
-
-### API Definition (OAS and FHIR CapabilityStatement)
-
-This will 
-
-- Display a FHIR CapabilityStatement or OAS using [swaggerUI](https://swagger.io/tools/swagger-ui/)
-- OAS can be converted to FHIR CapabilityStatement
-  - The conversion will also check for FHIR SearchDefinition's and add extra details if required.  
-- FHIR CapabilityStatement can be converted to OAS
-- This does not attempt to create an OAS schema and instead provides links to FHIR Conformace (e.g. UK Core) and FHIR schema downloads. 
-
-### Form Defintition (FHIR Structured Data Capture)
+### Form Defintition (uses FHIR Structured Data Capture)
 
 - Renders a [FHIR Questionnare](https://hl7.org/fhir/R4/questionnaire.html) using open source component from [LHC FHIR Tools](https://lhcforms.nlm.nih.gov/)
   - Can be used to create an example [FHIR QuestionnaireResponse](https://hl7.org/fhir/R4/questionnaireresponse.html)

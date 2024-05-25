@@ -2,8 +2,8 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.sunil.common</groupId>
-    <artifactId>mvn2ng10</artifactId>
+    <groupId>uk.co.mayfield-is</groupId>
+    <artifactId>interop-tools</artifactId>
     <version>1.0</version>
     <name>mvn2ng10</name>
     <build>
@@ -69,7 +69,7 @@
                                     <argument>--output-path</argument>
                                     <argument>docs</argument>
                                     <argument>--base-href</argument>
-                                    <argument>/interoperability-standards-tools-skunkworks/</argument>
+                                    <argument>/interop-tools/</argument>
                                 </arguments>
                             </configuration>
                         </execution>

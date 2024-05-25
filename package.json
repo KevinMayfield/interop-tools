@@ -1,5 +1,5 @@
 {
-  "name": "iops-validation-ui",
+  "name": "interop-tools",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

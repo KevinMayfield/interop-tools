@@ -6,7 +6,7 @@ http://localhost:4201/?iss=https:%2F%2F3cdzg7kbj4.execute-api.eu-west-2.amazonaw
 
 This does the following commands: 
 
-- ng build --configuration production --output-path docs --base-href /interoperability-standards-tools-skunkworks/
+- ng build --configuration production --output-path docs --base-href /interop-tools/
 - renames docs/index.html to docs/404.html (for github pages)
 - git add docs folder
 
