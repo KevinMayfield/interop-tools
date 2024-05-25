@@ -8,6 +8,7 @@ import {QuestionnaireComponent} from "./questionnaire/questionnaire.component";
 import {DocumentComponent} from "./document/document.component";
 import {MarkdownComponent} from "./markdown/markdown.component";
 import {EclBuilderComponent} from "./ecl-builder/ecl-builder.component";
+import {ProcessModellingComponent} from "./process-modelling/process-modelling.component";
 
 const routes: Routes = [ {
 
@@ -17,6 +18,7 @@ const routes: Routes = [ {
         { path: 'information', component: InformationComponent},
         { path: 'api', component: ApiDocumentationComponent},
         { path: 'questionnaire', component: QuestionnaireComponent},
+      { path: 'process', component: ProcessModellingComponent},
         { path: 'document', component: DocumentComponent},
         { path: 'ecl', component: EclBuilderComponent},
         { path: 'markdown', component: MarkdownComponent }
