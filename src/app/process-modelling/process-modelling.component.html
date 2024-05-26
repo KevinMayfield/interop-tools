@@ -19,12 +19,27 @@
     </mat-drawer>
     <mat-card>
         <mat-card-header>
-            <h2>Process Modelling (Idea)</h2>
+            <h2>Process Modelling (prototype)</h2>
         </mat-card-header>
         <mat-card-content>
-<span *ngIf="hasModeler() && !readonly">
-         <button color = "primary" mat-button (click)="save()" matTooltip="Save the form to the database">Save</button>&nbsp;
-</span>
+            <div layout="row" layout-align="space-between center">
+        <span *ngIf="hasModeler()">
+              <button color = "primary" mat-button (click)="new()" >New</button>&nbsp;
+                  <td-file-input
+                          class="push-left-sm push-right-sm"
+                          #fileInput
+                          [(ngModel)]="file"
+                          (selectFile)="selectFileEvent($event)"
+                          accept=".bpmn,.xml"
+                          color = "primary"
+                  >
+                        <mat-icon>folder</mat-icon>
+                        <span class="text-upper">Open</span>
+                    </td-file-input>
+
+             <button color = "primary" mat-button (click)="save()" >Save</button>&nbsp;
+        </span>
+            </div>
         <div #canvas id="canvas" style="height: calc(100vh - 100px)"></div>
 
     </mat-card-content>
