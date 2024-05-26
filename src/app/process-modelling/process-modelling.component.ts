@@ -13,6 +13,10 @@ import {ConfigService} from "../config.service";
 import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
 import {PlanDefinition} from "fhir/r5";
 import {HttpClient} from "@angular/common/http";
+import {MatTooltip} from "@angular/material/tooltip";
+import {NgIf} from "@angular/common";
+import {Observable} from "rxjs";
+import {saveAs, saveAs as importedSaveAs} from "file-saver";
 
 @Component({
   selector: 'app-process-modelling',
@@ -27,14 +31,17 @@ import {HttpClient} from "@angular/common/http";
     FormsModule,
     MatCard,
     MatCardContent,
-    MatCardHeader
+    MatCardHeader,
+    MatTooltip,
+    NgIf
   ],
   templateUrl: './process-modelling.component.html',
   styleUrl: './process-modelling.component.scss'
 })
 export class ProcessModellingComponent implements OnInit, AfterViewInit,AfterViewChecked {
   editorOptions = {theme: 'vs-dark', language: 'json'};
-   modeler
+
+  modeler : Modeler | undefined
   data: any;
   bpmnXml: any;
 
@@ -137,6 +144,7 @@ export class ProcessModellingComponent implements OnInit, AfterViewInit,AfterVie
   }
 
   @ViewChild('canvas', {static: false}) mydiv: ElementRef | undefined;
+  readonly = false;
 
 
   constructor(
@@ -181,7 +189,7 @@ export class ProcessModellingComponent implements OnInit, AfterViewInit,AfterVie
 
   bpmnInit() {
     if (this.mydiv !== undefined
-        && (this.modeler === null || this.modeler === undefined)
+        && !this.hasModeler()
         && this.bpmnXml !== undefined) {
       console.log('BPMN Init')
       console.log(this.modeler)
@@ -194,7 +202,9 @@ export class ProcessModellingComponent implements OnInit, AfterViewInit,AfterVie
 
         console.log('success !', warnings);
 
+        // @ts-ignore
         this.modeler.get('canvas').zoom('fit-viewport');
+
       }).catch(function(err) {
 
         const { warnings, message } = err;
@@ -211,5 +221,32 @@ export class ProcessModellingComponent implements OnInit, AfterViewInit,AfterVie
     }
   }
 
+  hasModeler() : boolean{
+     if (this.modeler === null || this.modeler === undefined) return false
+    return true
+  }
+
+  save() {
+    if (this.hasModeler()) {
+      this.modeler?.saveXML().then((result) => {
+
+        console.log(result);
+        const str = result.xml
+        if (str !== undefined) {
+
+
+          const blob = new Blob([str], {type: 'text/xml'});
+
+          saveAs(blob, 'model.bpmn');
+
+
+        }
+
+      }).catch(function(err) {
+
+        console.log(err);
+      });
+    }
+  }
 
 }

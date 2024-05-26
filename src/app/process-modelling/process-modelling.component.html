@@ -1,5 +1,5 @@
 <mat-drawer-container class="page-container" autosize>
-    <mat-drawer #drawer opened="true" style="width: 30%" mode="side">
+    <mat-drawer #drawer opened="false" style="width: 0%" mode="side">
         <mat-card>
             <mat-card-header>
                 <h2>Process Modelling (Idea)</h2>
@@ -17,11 +17,18 @@
             </mat-card-content>
         </mat-card>
     </mat-drawer>
-
-
+    <mat-card>
+        <mat-card-header>
+            <h2>Process Modelling (Idea)</h2>
+        </mat-card-header>
+        <mat-card-content>
+<span *ngIf="hasModeler() && !readonly">
+         <button color = "primary" mat-button (click)="save()" matTooltip="Save the form to the database">Save</button>&nbsp;
+</span>
         <div #canvas id="canvas" style="height: calc(100vh - 100px)"></div>
 
-
+    </mat-card-content>
+    </mat-card>
 </mat-drawer-container>
 
 

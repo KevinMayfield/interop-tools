@@ -1,13 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CommonModule, NgForOf, NgIf} from "@angular/common";
-import {Coding, Questionnaire, QuestionnaireItemAnswerOption, UsageContext} from "fhir/r4";
+import { Questionnaire, UsageContext} from "fhir/r4";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {
   CovalentDynamicFormsModule,
   ITdDynamicElementConfig,
   TdDynamicElement,
-  TdDynamicType
+
 } from "@covalent/dynamic-forms";
 import {
   MatRow, MatRowDef, MatTable, MatTableDataSource, MatTableModule
@@ -15,16 +15,13 @@ import {
 import {MatIcon} from "@angular/material/icon";
 import {MatAnchor, MatButton, MatIconButton} from "@angular/material/button";
 import {MatPaginator} from "@angular/material/paginator";
-import {ConceptPopupComponent} from "../../concept/concept-popup/concept-popup.component";
+
 import {MatDialog} from "@angular/material/dialog";
 import {MatCard, MatCardContent} from "@angular/material/card";
 import {CovalentMarkdownModule} from "@covalent/markdown";
 import {ConceptDisplayComponent} from "../../concept/concept-display/concept-display.component";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
-import {ConfigService} from "../../config.service";
-import {HttpClient} from "@angular/common/http";
-import {TdDialogService} from "@covalent/core/dialogs";
-import {TdLoadingService} from "@covalent/core/loading";
+
 import {MatChip} from "@angular/material/chips";
 
 @Component({
